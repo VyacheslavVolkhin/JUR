@@ -1130,14 +1130,14 @@ body {
   height: auto;
 }
 @supports ((-o-object-fit: cover) or (object-fit: cover)) {
-  .item-photo.photo-cover img {
+  .elm-photo.photo-cover img {
     height: 100%;
     -o-object-fit: cover;
        object-fit: cover;
   }
 }
 @supports ((-o-object-fit: contain) or (object-fit: contain)) {
-  .item-photo.photo-contain img {
+  .elm-photo.photo-contain img {
     height: 100%;
     -o-object-fit: contain;
        object-fit: contain;
@@ -1248,6 +1248,63 @@ body {
 /* ----------------------------------- *\
 			content styles
 \* ----------------------------------- */
+.popup-box.fancybox-content {
+  padding: 0;
+  background: none;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  overflow: visible;
+  width: 570px;
+}
+.popup-box .frm-main {
+  border-radius: 5px;
+  background: #F9F9F9;
+  border: 1px solid #D3D3D3;
+}
+.popup-box .fancybox-button.fancybox-close-small {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  min-width: 0;
+  padding: 0;
+}
+.popup-box .fancybox-button.fancybox-close-small:hover {
+  background: none;
+}
+.popup-box .fancybox-button.fancybox-close-small:hover:after,
+.popup-box .fancybox-button.fancybox-close-small:hover:before {
+  background: #000;
+}
+.popup-box .fancybox-button.fancybox-close-small:after,
+.popup-box .fancybox-button.fancybox-close-small:before {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: #8B949E;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -1px 0 0 -9px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  border-radius: 1px;
+  -webkit-transition: background ease 0.2s;
+  transition: background ease 0.2s;
+}
+.popup-box .fancybox-button.fancybox-close-small:before {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.popup-box .fancybox-button.fancybox-close-small * {
+  display: none;
+}
+.fancybox-bg {
+  background: rgba(0, 0, 0, 0.7);
+}
 .test-box {
   padding-top: 20px;
 }
@@ -2629,6 +2686,15 @@ body {
   }
 }
 @media (max-width: 767px) {
+  .popup-box.fancybox-content {
+    width: 400px;
+  }
+  .popup-box .frm-main {
+    padding: 30px 30px;
+  }
+  .popup-box .frm-main .frm-row {
+    margin-bottom: 16px;
+  }
   .test-box .test-inner-wrap {
     padding: 2em;
   }
@@ -3448,6 +3514,13 @@ input[type="submit"].button-gray:hover {
 .frm-select a:hover {
   text-decoration: none;
 }
+.frm-field-cpt {
+  display: block;
+  position: relative;
+  line-height: 1;
+  width: 302px;
+  margin: 0 auto;
+}
 .frm-field-ico {
   display: block;
   position: relative;
@@ -3623,6 +3696,10 @@ input[type="submit"].button-gray:hover {
   }
 }
 @media (max-width: 479px) {
+  .frm-field-cpt {
+    width: 240px;
+    height: 61px;
+  }
   .frm-select-toggle .lbl-toggle {
     position: relative;
     margin: 0 0 10px 0;

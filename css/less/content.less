@@ -1,6 +1,59 @@
 /* ----------------------------------- *\
 			content styles
 \* ----------------------------------- */
+.popup-box {
+    &.fancybox-content {
+        padding: 0;
+        background: none;
+        border-radius: 0;
+        box-shadow: none;
+        overflow: visible;
+        width: 570px;
+    }
+    .frm-main {
+        border-radius: 5px;
+        background: #F9F9F9;
+        border: 1px solid #D3D3D3;
+    }
+    .fancybox-button.fancybox-close-small {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        min-width: 0;
+        padding: 0;
+        &:hover {
+            background: none;
+            &:after, &:before {
+                background: #000;
+            }
+        }
+        &:after, &:before {
+            content: "";
+            display: block;
+            width: 18px;
+            height: 2px;
+            background: #8B949E;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -1px 0 0 -9px;
+            .t-rotate(45deg);
+            border-radius: 1px;
+            transition: background ease 0.2s;
+        }
+        &:before {
+            .t-rotate(-45deg);
+        }
+        * {
+            display: none;
+        }
+    }
+}
+.fancybox-bg {
+    background: fade(#000, 70);
+}
 .test-box {
     padding-top: 20px;
     .test-inner-wrap {
@@ -1307,6 +1360,17 @@
     }
 }
 @media (max-width: 767px) {
+    .popup-box {
+        &.fancybox-content {
+            width: 400px;
+        }
+        .frm-main {
+            padding: 30px 30px;
+            .frm-row {
+                margin-bottom: 16px;
+            }
+        }
+    }
     .test-box {
         .test-inner-wrap {
             padding: 2em;

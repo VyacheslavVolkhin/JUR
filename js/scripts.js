@@ -20,6 +20,14 @@ $(document).ready(function(){
 	  return this;
 	};
 
+    //item-video
+    $('.js-btn-video').on('click', function () {
+        let videoURL = $(this).parent('.item-video').attr('data-video');
+        $(this).parents('.item-video').addClass('active');
+        $(this).parents('.item-video').append('<iframe width="100%" height="100%" src="' + videoURL + '" frameborder="0" allowfullscreen></iframe>')
+        return false;
+    })
+    
 	//popup block
 	$('.js-popup-wrap .js-btn-toggle').on('click', function() {
 		if ($(this).hasClass('active')) {
@@ -100,7 +108,114 @@ $(document).ready(function(){
 			$(this).addClass('active').next('.js-tab-content').slideDown(200);
 		}
 	})
-	
+
+
+    //news-slider-box
+    if (!!$('.news-slider-box').offset()) {
+        $('.news-slider-box .slider').slick({
+            dots: false,
+            slidesToShow: 3,
+            variableWidth: false,
+            infinite: true,
+            adaptiveHeight: false,
+            prevArrow: '<span class="btn-action-ico ico-arrow ico-arrow-prev"></span>',
+            nextArrow: '<span class="btn-action-ico ico-arrow ico-arrow-next"></span>',
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 2,
+                    }
+                },
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 2,
+                        dots: true,
+                        prevArrow: false,
+                        nextArrow: false,
+                    }
+                },
+                {
+                    breakpoint: 640,
+                    settings: {
+                        slidesToShow: 1,
+                        dots: true,
+                        prevArrow: false,
+                        nextArrow: false,
+                    }
+                },
+            ]
+        });
+        $('.news-slider-box .slider-title-box .ico-arrow-prev').on('click', function () {
+            $(this).parents('.news-slider-box').find('.slider-wrap').find('.ico-arrow-prev').click();
+            return false;
+        })
+        $('.news-slider-box .slider-title-box .ico-arrow-next').on('click', function () {
+            $(this).parents('.news-slider-box').find('.slider-wrap').find('.ico-arrow-next').click();
+            return false;
+        })
+    }
+
+    //examples-box
+    if (!!$('.examples-box').offset()) {
+        $('.examples-box .slider').slick({
+            dots: false,
+            slidesToShow: 1,
+            variableWidth: false,
+            infinite: true,
+            adaptiveHeight: false,
+            prevArrow: '<span class="btn-action-ico ico-arrow ico-arrow-prev"></span>',
+            nextArrow: '<span class="btn-action-ico ico-arrow ico-arrow-next"></span>',
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                    }
+                },
+            ]
+        });
+    }
+
+    //slider-box
+    if (!!$('.slider-box').offset()) {
+        $('.slider-box .slider').slick({
+            dots: false,
+            slidesToShow: 1,
+            variableWidth: false,
+            infinite: true,
+            adaptiveHeight: false,
+            prevArrow: '<span class="btn-action-ico ico-arrow ico-arrow-prev"></span>',
+            nextArrow: '<span class="btn-action-ico ico-arrow ico-arrow-next"></span>',
+            responsive: [
+                {
+                    breakpoint: 640,
+                    settings: {
+                        dots: true,
+                        prevArrow: false,
+                        nextArrow: false,
+                    }
+                },
+            ]
+        });
+    }
+
+    //animation
+    if (!!$('.item-animation').offset()) {
+        var sTop = $(window).scrollTop() + $(window).innerHeight();
+        $('.item-animation').each(function () {
+            if ($(this).offset().top < sTop) {
+                $(this).addClass('item-active')
+            }
+        })
+    
+        $(window).scroll(function () {
+            var sTop = $(window).scrollTop() + $(window).innerHeight();
+            $('.item-animation').each(function () {
+                if ($(this).offset().top < sTop) {
+                    $(this).addClass('item-active')
+                }
+            })
+        });
+    }
 });
-
-

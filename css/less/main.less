@@ -1,11 +1,11 @@
 :root {
-	--clr-base: #000;
-	--clr-att: #f00;
+	--clr-base: #626262;
+    --clr-title: #3F3F3F;
+	--clr-att: #1260d6;
+    --clr-border: #ECECEC;
 
 	--min: 320px;
-	--max: 1200px;
-
-	font-size: 10px;
+	--max: 1500px;
 }
 .sl-wrap~.sl-wrap {
 	display: none;
@@ -17,11 +17,14 @@
 			main styles
 \* ----------------------------------- */
 body {
-	color: var(--clr-base, #000);
+	color: var(--clr-base, #626262);
 	background: #fff;
+    font-size: 1rem;
+    line-height: 1.2;
 }
 p, ul, ol {
 	position: relative;
+    margin-bottom: 30/16em;
 	img {
 		max-width: 100%;
 	}
@@ -32,13 +35,40 @@ p, ul, ol {
 
 li {
 	position: relative;
+    padding-left: 22px;
+    &:before {
+        content: "";
+        display: block;
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: var(--clr-base);
+        position: absolute;
+        top: 0.6em;
+        left: 8px;
+        margin-top: -2px;
+    }
+}
+ul {
+    padding-left: 20px;
+}
+ol {
+    padding-left: 5px;
+    list-style: decimal;
+    list-style-position: inside;
+    li {
+        padding-left: 0;
+    	&:before {
+    		display: none;
+    	}
+    }
 }
 a {
 	text-decoration: none;
-	color: var(--clr-att, #f00);
+	color: var(--clr-att, #1260d6);
 	&:hover {
 		text-decoration: none;
-		color: var(--clr-att, #f00);
+		color: var(--clr-att, #1260d6);
 	}
 }
 a.link-main, .link-main {
@@ -56,7 +86,106 @@ h5, .h5-title,
 h6, .h6-title {
 	display: block;
 	position: relative;
+    margin: 1em 0;
+    color: var(--clr-title);
     &:first-child {
         margin-top: 0;
+    }
+}
+.h1-title, h1 {
+    font-size: 50/16rem;
+    line-height: 1.1;
+    font-weight: 900;
+    margin-bottom: 1em;
+    margin-top: 0;
+}
+.h2-title, h2,
+.h3-title, h3 {
+    font-size: 28/16em;
+    line-height: 40/28;
+    margin-bottom: 1.5em;
+    margin-top: 3.2em;
+    font-weight: 400;
+}
+.h3-title, h3 {
+    font-size: 24/16em;
+}
+.title-light {
+    font-weight: bold;
+}
+.title-decor {
+    padding-left: 90/50em;
+    &:before {
+        content: "";
+        display: block;
+        width: 54/50em;
+        height: 5px;
+        background: #C5281C;
+        position: absolute;
+        top: 0.55em;
+        left: 0;
+        margin-top: -3px;
+    }
+}
+.title-att, .text-att {
+    color: #C5281C;
+}
+blockquote, .bq-text {
+    font-style: italic;
+    padding-left: 122/16em;
+    min-height: 80/16em;
+    display: block;
+    position: relative;
+    margin: 3.5em 0 2em 0;
+    &:first-child {
+        margin-top: 0;
+    }
+    &:before {
+        content: "";
+        display: block;
+        width: 95/16em;
+        height: 80/16em;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #F3F3F3 url(../img/icons/quote.svg) center no-repeat;
+        background-size: 71/16em auto;
+        border-radius: 5px;
+    }
+}
+@media (max-width: 1023px) {
+    body {
+        font-size: 14/16rem;
+    }
+    h1, .h1-title {
+        font-size: 36/16rem;
+    }
+    h2, .h2-title {
+        font-size: 24/16em;
+    }
+    h3, .h3-title {
+        font-size: 20/16em;
+    }
+    ul {
+        padding-left: 0;
+    }
+}
+@media (max-width: 767px) {
+    h1, .h1-title {
+        font-size: 30/16rem;
+    }
+    blockquote, .bq-text {
+        padding-left: 55px;
+        min-height: 40px;
+        &:before {
+            width: 40px;
+            height: 40px;
+            background-size: 80% auto;
+        }
+    }
+}
+@media (max-width: 479px) {
+    h1, .h1-title {
+        font-size: 24/16rem;
     }
 }
